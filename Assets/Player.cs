@@ -30,6 +30,7 @@ public class Player : MonoBehaviour {
 	void Start(){
 		direction = FaceDirection.Right;	
 		fist = gameObject.transform.FindChild("fist").gameObject;
+		fist.tag = "fist";
 		
 		trigger = GameObject.Find("EventTrigger").GetComponent<EventTrigger>();
 		
