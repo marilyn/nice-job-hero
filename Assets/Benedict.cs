@@ -21,7 +21,7 @@ public class Benedict : Player {
 	
 	void OnCollisionEnter (Collision collision) {
 		if (collision.gameObject.tag == "block") {
-			Block block = collision.gameObject.GetComponent(Block);
+			Block block = collision.gameObject.GetComponent<Block>();
 			if (block.IsBroken && isSlow == false) {
 				speed = speed / 2;
 				isSlow = true;
@@ -31,7 +31,7 @@ public class Benedict : Player {
 	
 	void OnCollisionExit (Collision collision) {
 		if (collision.gameObject.tag == "block" ) {
-			Block block = collision.gameObject.GetComponent(Block);
+			Block block = collision.gameObject.GetComponent<Block>();
 			if (block.IsBroken && isSlow == true) {
 				speed = speed * 2;
 				isSlow = false;
