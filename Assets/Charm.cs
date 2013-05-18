@@ -23,8 +23,6 @@ public class Charm : MonoBehaviour {
 	
 		
 	IEnumerator Acquired(){
-		// notify game manager of acquisition
-		// notify player of acquisition
 		acquirer.acquires(this.gameObject);
 		Destroy(this.gameObject);
 		
