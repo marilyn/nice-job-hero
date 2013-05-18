@@ -40,6 +40,14 @@ public class Player : MonoBehaviour {
 		if(collision.gameObject.tag == "platform"  || collision.gameObject.tag == "pitceiling"){
 			IsOnGround = true;	
 		}
+		
+		foreach(Event e in Camera.main.GetComponent<GameManager>().events){
+			if(e !=null){
+				if(collision.gameObject == e.collisionEventObject){
+					e.playerHasCollided = true;	
+				}
+			}
+		}
 	}
 	
 	void StorePos(){
@@ -50,11 +58,13 @@ public class Player : MonoBehaviour {
 		CancelInvoke("StorePos");	
 	}
 	
-	/*void OnCollisionExit(Collision collision){
-		if(collision.gameObject.tag == "platform"){
-			IsOnGround = false;	
+	void OnCollisionExit(Collision collision){
+		foreach(Event e in Camera.main.GetComponent<GameManager>().events){
+			if(e !=null){
+				e.playerHasCollided = false;
+			}
 		}
-	}*/
+	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {

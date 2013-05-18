@@ -11,20 +11,23 @@ public class CameraFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(player.transform.position.x > this.transform.position.x+snapWidth){
-			this.transform.position = new Vector3(player.transform.position.x - snapWidth,this.transform.position.y, this.transform.position.z);	
-		}
 		
-		if(player.transform.position.x < this.transform.position.x-snapWidth){
-			this.transform.position = new Vector3(player.transform.position.x + snapWidth,this.transform.position.y, this.transform.position.z);	
-		}
-		
-		if(player.transform.position.y > this.transform.position.y+snapHeight){
-			this.transform.position = new Vector3(this.transform.position.x ,player.transform.position.y - snapHeight, this.transform.position.z);	
-		}
-		
-		if(player.transform.position.y < this.transform.position.y-snapHeight){
-			this.transform.position = new Vector3(this.transform.position.x ,player.transform.position.y + snapHeight, this.transform.position.z);	
+		if(player != null){
+			if(player.transform.position.x > this.transform.position.x+snapWidth){
+				this.transform.position = new Vector3(player.transform.position.x - snapWidth,this.transform.position.y, this.transform.position.z);	
+			}
+			
+			if(player.transform.position.x < this.transform.position.x-snapWidth){
+				this.transform.position = new Vector3(player.transform.position.x + snapWidth,this.transform.position.y, this.transform.position.z);	
+			}
+			
+			if(player.transform.position.y > this.transform.position.y+snapHeight){
+				this.transform.position = new Vector3(this.transform.position.x ,player.transform.position.y - snapHeight, this.transform.position.z);	
+			}
+			
+			if(player.transform.position.y < this.transform.position.y-snapHeight){
+				this.transform.position = new Vector3(this.transform.position.x ,player.transform.position.y + snapHeight, this.transform.position.z);	
+			}
 		}
 	}
 	
