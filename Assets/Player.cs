@@ -33,7 +33,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter(Collision collision){
-		if(collision.gameObject.tag == "platform"){
+		if(collision.gameObject.tag == "platform"  || collision.gameObject.tag == "pitceiling"){
 			IsOnGround = true;	
 		}
 	}
