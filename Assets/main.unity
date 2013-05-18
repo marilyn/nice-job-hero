@@ -349,7 +349,7 @@ GameObject:
   - 65: {fileID: 275132432}
   m_Layer: 8
   m_Name: fist
-  m_TagString: Untagged
+  m_TagString: fist
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
