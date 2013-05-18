@@ -98,4 +98,8 @@ public class Player : MonoBehaviour {
 		bc.center = Vector3.zero;
 		
 	}
+	
+	public void acquires(GameObject charm) {
+		// should be overridden in subclass for the specific behavior
+	}
 }

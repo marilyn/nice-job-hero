@@ -2,10 +2,11 @@ using UnityEngine;
 using System.Collections;
 
 public class Charm : MonoBehaviour {
-
+	public Player acquirer;
+	
 	// Use this for initialization
 	void Start () {
-	
+		
 	}
 	
 	// Update is called once per frame
@@ -15,6 +16,7 @@ public class Charm : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision collision){
 		if(collision.gameObject.tag == "hero"){
+			acquirer = collision.gameObject.GetComponent<Player>();
 			StartCoroutine(Acquired());	
 		}
 	}
@@ -23,6 +25,7 @@ public class Charm : MonoBehaviour {
 	IEnumerator Acquired(){
 		// notify game manager of acquisition
 		// notify player of acquisition
+		acquirer.acquires(this.gameObject);
 		Destroy(this.gameObject);
 		
 		yield return null;
