@@ -20,15 +20,17 @@ public class Enemy : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter(Collision col2){
-		//Debug.Log("col2: " + col2.gameObject.transform.FindChild ("fist").tag);
 		
-	if(col2.transform.FindChild("fist")){
+		//Debug.Log ("COL2: " + col2.gameObject.transform.FindChild("fist").gameObject.tag);
+		
+		if(col2.transform.FindChild("fist")){
 			BoxCollider bc = col2.transform.FindChild ("fist").GetComponent<BoxCollider>();
 			if(bc.bounds.size.x > 0){
 			HP--;
-			if (HP <= 0){
-				DestroyObject(this.gameObject);
-			}
+				Debug.Log (HP);
+				if (HP <= 0){
+					DestroyObject(this.gameObject);
+				}
 			}
 		}
 	}

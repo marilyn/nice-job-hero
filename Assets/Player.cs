@@ -42,6 +42,10 @@ public class Player : MonoBehaviour {
 			IsOnGround = true;	
 		}
 		
+		if(collision.gameObject.tag == "daEnemy"){
+			this.transform.position = new Vector3(0, 0, 0);	
+		}
+		
 		foreach(Event e in Camera.main.GetComponent<GameManager>().events){
 			if(e !=null){
 				if(collision.gameObject == e.collisionEventObject){
