@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour {
 	Player.FaceDirection direction;
 	
 	int speed = 2;
+	int HP = 2;
 	
 	// Use this for initialization
 	void Start () {
@@ -15,6 +16,20 @@ public class Enemy : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if(col.tag == "enemybound"){
 			direction = (Player.FaceDirection)(-(int)direction);
+		}
+	}
+	
+	void OnCollisionEnter(Collision col2){
+		//Debug.Log("col2: " + col2.gameObject.transform.FindChild ("fist").tag);
+		
+	if(col2.transform.FindChild("fist")){
+			BoxCollider bc = col2.transform.FindChild ("fist").GetComponent<BoxCollider>();
+			if(bc.bounds.size.x > 0){
+			HP--;
+			if (HP <= 0){
+				DestroyObject(this.gameObject);
+			}
+			}
 		}
 	}
 	
