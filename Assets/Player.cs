@@ -30,7 +30,7 @@ public class Player : MonoBehaviour {
 	void Start(){
 		direction = FaceDirection.Right;	
 		fist = gameObject.transform.FindChild("fist").gameObject;
-		fist.tag = "fist";
+		fist.tag = "fist"; //So the punching code will know where to look
 		
 		trigger = GameObject.Find("EventTrigger").GetComponent<EventTrigger>();
 		
@@ -42,10 +42,7 @@ public class Player : MonoBehaviour {
 			IsOnGround = true;	
 		}
 		
-		if(collision.gameObject.tag == "daEnemy"){
-			this.transform.position = new Vector3(0, 0, 0);	
-		}
-		
+		/*
 		foreach(Event e in Camera.main.GetComponent<GameManager>().events){
 			if(e !=null){
 				if(collision.gameObject == e.collisionEventObject){
@@ -53,6 +50,7 @@ public class Player : MonoBehaviour {
 				}
 			}
 		}
+		*/
 	}
 	
 	void StorePos(){
