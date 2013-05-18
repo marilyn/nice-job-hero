@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
 	
@@ -14,8 +15,10 @@ public class Player : MonoBehaviour {
 	public bool IsOnGround{
 		get { return isOnGround; }
 		set { isOnGround = value; }
-		
 	}
+	
+	public List<Vector3> posInTime = new List<Vector3>();
+		
 	
 	public GameObject fist;
 	
@@ -25,12 +28,22 @@ public class Player : MonoBehaviour {
 	void Start(){
 		direction = FaceDirection.Right;	
 		fist = gameObject.transform.FindChild("fist").gameObject;
+		
+		InvokeRepeating("StorePos", 1, .005f);
 	}
 	
 	void OnCollisionEnter(Collision collision){
 		if(collision.gameObject.tag == "platform"){
 			IsOnGround = true;	
 		}
+	}
+	
+	void StorePos(){
+		posInTime.Add(this.transform.position);	
+	}
+	
+	public void Cancel(){
+		CancelInvoke("StorePos");	
 	}
 	
 	/*void OnCollisionExit(Collision collision){
