@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour {
 	
 	int speed = 2;
 	int HP = 2;
+	bool invinc = false;
 	
 	// Use this for initialization
 	void Start () {
@@ -25,14 +26,21 @@ public class Enemy : MonoBehaviour {
 		
 		if(col2.transform.FindChild("fist")){
 			BoxCollider bc = col2.transform.FindChild ("fist").GetComponent<BoxCollider>();
-			if(bc.bounds.size.x > 0){
-			HP--;
-				Debug.Log (HP);
+			if(bc.bounds.size.x > 0 && !invinc){
+				HP--;
+				invinc = true;
+				this.rigidbody.velocity = new Vector3(-4 * (int) direction, -Physics.gravity.y/1.2f,0);
+				
 				if (HP <= 0){
 					DestroyObject(this.gameObject);
 				}
 			}
 		}
+	}
+	
+	void OnCollisionExit(Collision col2){
+		invinc = false;
+		
 	}
 	
 	// Update is called once per frame
