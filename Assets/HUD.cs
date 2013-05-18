@@ -15,8 +15,8 @@ public class HUD : MonoBehaviour {
 	}
 	
 	void OnGUI() {
-		float width  = Camera.current.pixelWidth;
-		float height = Camera.current.pixelHeight;
+		float width  = Camera.main.pixelWidth;
+		float height = Camera.main.pixelHeight;
 				
 		// Make a group on the center of the screen
 		GUI.BeginGroup (new Rect (width - 110, 10, 150, 100));
