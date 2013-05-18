@@ -260,6 +260,8 @@ GameObject:
   - 33: {fileID: 364173935}
   - 65: {fileID: 364173934}
   - 23: {fileID: 364173933}
+  - 114: {fileID: 364173937}
+  - 54: {fileID: 364173938}
   m_Layer: 0
   m_Name: PitCeiling
   m_TagString: platform
@@ -318,6 +320,31 @@ Transform:
   m_LocalScale: {x: 8, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &364173937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 364173932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ccfdc27a1a14f5abee571eef0ee664, type: 3}
+  m_Name: 
+--- !u!54 &364173938
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 364173932}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &501219081
 Prefab:
   m_ObjectHideFlags: 0
