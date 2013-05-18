@@ -5,6 +5,8 @@ public class Benedict : Player {
 	
 	private bool isSlow; /* slower than usual, even */
 	
+	private int luck;
+	
 	public bool IsSlow{
 		get { return isSlow; }
 	}
@@ -36,6 +38,13 @@ public class Benedict : Player {
 				speed = speed * 2;
 				isSlow = false;
 			}
+		}
+	}
+	
+	new public void acquires(GameObject obj) {
+		if (obj.tag == "charm") {
+			Charm charm = obj.GetComponent<Charm>();
+			luck += charm.GetLuck;
 		}
 	}
 	
