@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
 	
 	public int speed;
 	
+	public EventTrigger trigger;
+	
 	public bool IsOnGround{
 		get { return isOnGround; }
 		set { isOnGround = value; }
@@ -28,6 +30,8 @@ public class Player : MonoBehaviour {
 	void Start(){
 		direction = FaceDirection.Right;	
 		fist = gameObject.transform.FindChild("fist").gameObject;
+		
+		trigger = GameObject.Find("EventTrigger").GetComponent<EventTrigger>();
 		
 		InvokeRepeating("StorePos", 1, .005f);
 	}
@@ -78,6 +82,10 @@ public class Player : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Space) && isOnGround){
 			this.rigidbody.velocity = new Vector3(0,-Physics.gravity.y/1.5f,0);
 			IsOnGround = false;
+		}
+		
+		if(Input.GetKeyDown(KeyCode.Alpha1)){
+			trigger.Play();
 		}
 	}
 	
