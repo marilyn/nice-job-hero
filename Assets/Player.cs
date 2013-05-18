@@ -33,7 +33,9 @@ public class Player : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter(Collision collision){
-		if(collision.gameObject.tag == "platform"){
+		Debug.Log(collision.gameObject.tag);
+		if(collision.gameObject.tag == "platformTop"){
+			Debug.Log ("HERE");
 			IsOnGround = true;	
 		}
 	}
@@ -47,7 +49,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	/*void OnCollisionExit(Collision collision){
-		if(collision.gameObject.tag == "platform"){
+		if(collision.gameObject.tag == "platformTop"){
 			IsOnGround = false;	
 		}
 	}*/
@@ -82,7 +84,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	IEnumerator Punch(){
-		fist.transform.position = new Vector3(this.transform.position.x + this.collider.bounds.extents.x * (int)direction, fist.transform.position.y, fist.transform.position.z);
+		fist.transform.position = new Vector3(this.transform.position.x + this.collider.bounds.extents.x * (int)direction + (.1f*-(int)direction) , fist.transform.position.y, fist.transform.position.z);
 		
 		BoxCollider bc = fist.GetComponent<BoxCollider>();
 		

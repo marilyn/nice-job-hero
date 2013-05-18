@@ -5,6 +5,13 @@ TagManager:
   tags:
   - platform
   - wall
+<<<<<<< HEAD
+  - platformTop
+  - enemybound
+=======
+  - pitceiling
+  - hero
+>>>>>>> 60bae167c576ccb1170e1748afcda739d0d9ef05
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
