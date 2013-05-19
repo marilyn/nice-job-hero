@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
 	int speed = 2;
 	int HP = 2;
 	bool invinc = false;
+	int points = 250;
 	
 	// Use this for initialization
 	void Start () {
@@ -33,6 +34,8 @@ public class Enemy : MonoBehaviour {
 				
 				if (HP <= 0){
 					DestroyObject(this.gameObject);
+					Hero hero = col2.gameObject.GetComponent<Hero>();
+					hero.AddPoints(this.points);
 				}
 			}
 		}

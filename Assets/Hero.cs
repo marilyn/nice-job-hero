@@ -9,6 +9,7 @@ public class Hero : Player {
 	
 	public int GetPoints{
 		get { return points; }
+		set { points = value; }
 	}
 
 	// Use this for initialization
@@ -103,8 +104,16 @@ public class Hero : Player {
 		}
 	}
 	
+
+	
+
+	public void AddPoints(int points) {
+		this.points += points;
+	}
+	
 	int punchType = 0;
 	bool punching = false;
+
 	
 	IEnumerator Punch(){
 		fist.transform.position = new Vector3(this.transform.position.x + this.collider.bounds.extents.x * -(int)direction, fist.transform.position.y, fist.transform.position.z);
