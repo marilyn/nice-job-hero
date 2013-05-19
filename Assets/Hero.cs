@@ -6,6 +6,10 @@ public class Hero : Player {
 	public int points;
 		
 	public GameObject fist;
+
+  private const float punchRate = 0.2f; // the punch sound can only be played 5 times per second
+  private float nextPunchTime;
+  public AudioClip punchSound;
 	
 	public int GetPoints{
 		get { return points; }
@@ -17,6 +21,7 @@ public class Hero : Player {
 		points = 0;
 		fist = gameObject.transform.FindChild("fist").gameObject;
 		fist.tag = "fist"; //So the punching code will know where to look
+    nextPunchTime = Time.time + punchRate;
 	}
 	
 	void Update(){
@@ -87,6 +92,11 @@ public class Hero : Player {
 			
 			if(Input.GetKey(KeyCode.DownArrow) && !punching){
 				StartCoroutine("Punch");
+
+        if (Time.time > nextPunchTime) {
+          nextPunchTime = Time.time + punchRate;
+          audio.PlayOneShot(punchSound, 1.0f);
+        }
 			}
 			
 			if(Input.GetKeyDown(KeyCode.Space) && isOnGround){
