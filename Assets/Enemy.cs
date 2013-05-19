@@ -4,6 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour {
 	
 	Player.FaceDirection direction;
+ 	public GameObject Explosion;
 	
 	int speed = 2;
 	int HP = 2;
@@ -15,7 +16,7 @@ public class Enemy : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		direction = Player.FaceDirection.Right;
+		direction = Player.FaceDirection.Left;
 		
 		hitdelay = Time.time + hitRate;
 	}
@@ -38,6 +39,8 @@ public class Enemy : MonoBehaviour {
 				
 				if (HP <= 0){
 					DestroyObject(this.gameObject);
+          			//Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
+					// mark enemy as dead
 					Hero hero = col2.gameObject.GetComponent<Hero>();
 					hero.AddPoints(this.points);
 				}
