@@ -21,7 +21,16 @@ public class Player : MonoBehaviour {
 	
 	public bool IsOnGround{
 		get { return isOnGround; }
-		set { isOnGround = value; }
+		set { 
+      		if(value) {
+				this.gameObject.collider.material.dynamicFriction = 0.4f;
+				this.gameObject.collider.material.staticFriction = 0.4f;
+      		} else {
+				this.gameObject.collider.material.dynamicFriction = 0.0f;
+				this.gameObject.collider.material.staticFriction = 0.0f;
+      		}
+      		isOnGround = value;
+		}
 	}
 	
 	public List<Vector3> posInTime = new List<Vector3>();
