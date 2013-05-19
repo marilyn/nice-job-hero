@@ -16,6 +16,24 @@ GameObject:
   - 82: {fileID: 8200000}
   m_Layer: 0
   m_Name: Enemy
+  m_TagString: explode
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400002}
+  - 114: {fileID: 11400002}
+  - 23: {fileID: 2300002}
+  - 33: {fileID: 3300002}
+  m_Layer: 0
+  m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,11 +45,23 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.0265961, y: -.305133492, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_LocalRotation: {x: -1.15202326e-07, y: .707106709, z: -.707106829, w: -1.15202312e-07}
+  m_LocalPosition: {x: 34.8639221, y: -.401401639, z: 0}
+  m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
+  m_Children:
+  - {fileID: 400002}
   m_Father: {fileID: 0}
+--- !u!4 &400002
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_LocalRotation: {x: 1.15202326e-07, y: -.707106709, z: .707106829, w: -1.15202312e-07}
+  m_LocalPosition: {x: -39.5462418, y: -1.24884364e-05, z: 0}
+  m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
+  m_Children: []
+  m_Father: {fileID: 400000}
 --- !u!23 &2300000
 Renderer:
   m_ObjectHideFlags: 1
@@ -50,12 +80,37 @@ Renderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
+--- !u!23 &2300002
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 2100000, guid: da3fe936ffec94d5983bc7b070a66d3e, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
 --- !u!33 &3300000
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &3300002
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &5400000
 Rigidbody:
@@ -67,7 +122,7 @@ Rigidbody:
   m_Mass: 2
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
@@ -82,7 +137,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.00000012, y: 2, z: 1.00000024}
+  m_Size: {x: 4, y: -11, z: 5.9000001}
   m_Center: {x: 5.96046448e-08, y: 0, z: -8.94069672e-08}
 --- !u!82 &8200000
 AudioSource:
@@ -193,7 +248,7 @@ MonoBehaviour:
   Explosion: {fileID: 100000, guid: 14f510d1b49e0401d836bfe5501ccdc0, type: 2}
   HP: 2
   flame: {fileID: 0}
-  sampleFlame: {fileID: 0}
+  sampleFlame: {fileID: 100002}
   idle: {fileID: 2800000, guid: cc2983e9364774458a96fde279246d02, type: 3}
   move:
   - {fileID: 2800000, guid: 5c7c895e21c0b420f900cf205b398d6e, type: 3}
@@ -213,6 +268,25 @@ MonoBehaviour:
   - {fileID: 2800000, guid: f27f7308d35eb4c7e81793cd2931f22e, type: 3}
   - {fileID: 2800000, guid: ead0f79b226b44316b590b020c282223, type: 3}
   docile: []
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a8d27eacf0e46f28caa434d751231c, type: 3}
+  m_Name: 
+  fireLoop:
+  - {fileID: 2800000, guid: 466ed7ad4be004060af05237b55715d3, type: 3}
+  - {fileID: 2800000, guid: 0a6b442b0d77f4e96b5294f36329639a, type: 3}
+  - {fileID: 2800000, guid: 6885c6419d6be44c8a431e83a7bef060, type: 3}
+  - {fileID: 2800000, guid: 887379f38ba9f476fb358db3b3f7edee, type: 3}
+  - {fileID: 2800000, guid: 11662db0cbd19450bad3c6a3139a66e6, type: 3}
+  - {fileID: 2800000, guid: 97ece6f8818804317982fa5c6c8e0148, type: 3}
+  - {fileID: 2800000, guid: 0a6b442b0d77f4e96b5294f36329639a, type: 3}
+  - {fileID: 2800000, guid: 466ed7ad4be004060af05237b55715d3, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

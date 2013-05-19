@@ -7,11 +7,14 @@ TagManager:
   - wall
   - pitceiling
   - hero
-  - 
-  - charm
-  - fist
+  - shard
   - enemybound
+  - fist
   - benedict
+  - charm
+  - 
+  - AsteroidExplosion
+  - 
   - explode
   - 
   Builtin Layer 0: Default

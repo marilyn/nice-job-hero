@@ -22,11 +22,15 @@ public class Flame : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Enemy enemy = this.transform.parent.gameObject.GetComponent<Enemy>();
+		this.renderer.material.SetTextureScale("_MainTex", new Vector2(-(int)enemy.direction,1));
 		this.renderer.material.SetTexture("_MainTex", fireLoop[0]);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		Enemy enemy = this.transform.parent.gameObject.GetComponent<Enemy>();
+		this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)enemy.direction,1));
 		this.renderer.material.SetTexture("_MainTex", fireLoop[(int)fireFrame]);
 		FireFrame+=.5f;
 	

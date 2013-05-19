@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 	
-	Player.FaceDirection direction;
+	public Player.FaceDirection direction;
  	public GameObject Explosion;
 	
 	int speed = 2;
@@ -141,12 +141,14 @@ public class Enemy : MonoBehaviour {
 		this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));		
 		
 		this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)direction,1));
-		this.renderer.material.SetTexture("_MainTex", move[(int)moveFrame]);
+		this.renderer.material.SetTexture("_MainTex", move[(int)moveFrame]); 
 		moveFrame+=.5f;
 	}
 	
 	void Fire() {
-		flame = GameObject.Instantiate(sampleFlame, new Vector3(this.transform.position.x + (int)direction, this.transform.position.y, this.transform.position.z), Quaternion.Euler(90,180,0)) as GameObject;
+		this.renderer.material.SetTextureScale("_MainTex", new Vector2(-(int)direction,1));
+		flame = GameObject.Instantiate(sampleFlame, new Vector3(this.transform.position.x - (int)direction*1.1f, this.transform.position.y + .5f, this.transform.position.z), Quaternion.Euler(90,180,0)) as GameObject;
+		flame.gameObject.transform.parent = this.transform;
 		Destroy(flame,1);
 	}
 	
