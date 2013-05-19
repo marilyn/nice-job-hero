@@ -22,7 +22,7 @@ public class PitCeilingScript : MonoBehaviour {
 	
 	
 	IEnumerator Fall(){
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1);
 		
 		this.rigidbody.isKinematic = false;
 		this.rigidbody.useGravity = true;	

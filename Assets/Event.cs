@@ -44,7 +44,7 @@ public class Event : MonoBehaviour {
 			}
 		}
 		
-		if(doneRecording && player2TriggerObject != null && Input.GetKeyDown(KeyCode.Alpha1)){
+		if(doneRecording && player2TriggerObject != null && playerHasCollided){
 			player1Trigger.Play();
 			
 		}

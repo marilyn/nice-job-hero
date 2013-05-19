@@ -25,7 +25,7 @@ public class Benedict : Player {
 	}
 	
 	float walkFrame=0;
-	
+		
 	float WalkFrame{
 		get{ return walkFrame; }
 		set{

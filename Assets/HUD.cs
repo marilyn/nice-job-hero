@@ -30,8 +30,16 @@ public class HUD : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(benedict == null){
+			if(GameObject.Find("Benedict")!= null){
+				benedict = GameObject.Find("Benedict").GetComponent<Benedict>();	
+			}
+		}
+		
 		points = hero.GetPoints;
-		//luck = benedict.GetLuck;
+		if(benedict != null){
+			luck = benedict.GetLuck;
+		}
 	}
 	
 	void OnGUI() {

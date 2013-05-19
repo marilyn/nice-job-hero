@@ -42,6 +42,13 @@ public class Hero : Player {
 		}
 	}
 	
+	void OnTriggerEnter(Collider col){
+		if(col.gameObject == Camera.main.GetComponent<GameManager>().endLevel1){	
+				Camera.main.GetComponent<GameManager>().EndLevel1();
+		}
+		
+	}
+	
 	float runFrame=0;
 	
 	float RunFrame{
@@ -124,7 +131,7 @@ public class Hero : Player {
 		if (obj.tag == "charm") {
 			Charm charm = obj.GetComponent<Charm>();
 			points += charm.GetPoints;
-			audio.PlayOneShot(acquireSound, 1.0f);
+			audio.PlayOneShot(acquireSound, 1.0f); 
 		}
 	}
 	
@@ -133,6 +140,7 @@ public class Hero : Player {
 
 	public void AddPoints(int points) {
 		this.points += points;
+		
 	}
 	
 	int punchType = 0;

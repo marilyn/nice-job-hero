@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	public void EndLevel1(){
-		Debug.Log ("HERE");
 		if(currentPlayer.name == "Hero"){
 			currentPlayer.SetActive(false);
 			
