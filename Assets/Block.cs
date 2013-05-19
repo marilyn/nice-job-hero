@@ -22,6 +22,11 @@ public class Block : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject.tag == "fist" && isBroken == false) {
 			isBroken = true;	
+			foreach (Rigidbody shard in this.GetComponentsInChildren<Rigidbody>()) {
+				shard.useGravity = true;
+				shard.isKinematic = false;
+				// explode?
+			}
 		} 
 		
 	}
