@@ -58,6 +58,15 @@ public class Player : MonoBehaviour {
 		}
 		
 		
+		if(collision.gameObject.tag == "explode" && this.tag == "hero"){
+			
+			BoxCollider bc = this.transform.FindChild ("fist").GetComponent<BoxCollider>();
+			if(bc.bounds.size.x == 0){
+				Hero hero = GameObject.Find("Hero").GetComponent<Hero>();
+				hero.Health *= 0.99f;
+			}
+		}
+		
 		foreach(Event e in Camera.main.GetComponent<GameManager>().events){
 			if(e !=null){
 				if(collision.gameObject == e.collisionEventObject){
