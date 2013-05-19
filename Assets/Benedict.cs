@@ -19,6 +19,7 @@ public class Benedict : Player {
 	void Start () {
 		isSlow = false;
 		luck = 50;
+		this.tag = "benedict";
 	}
 	
 	void Update(){

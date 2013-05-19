@@ -29,6 +29,14 @@ public class Enemy : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision col2){
 		
+		if(col2.gameObject.tag == "benedict"){
+			if (HP <= 0){
+				Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
+				DestroyObject(this.gameObject);
+			}
+		}
+		
+		
 		if(col2.transform.FindChild("fist")){
 			BoxCollider bc = col2.transform.FindChild ("fist").GetComponent<BoxCollider>();
 			if(bc.bounds.size.x > 0 && Time.time > hitdelay){
@@ -42,6 +50,8 @@ public class Enemy : MonoBehaviour {
 					this.gameObject.renderer.material.SetColor("_Color", Color.red);
 					speed = 0;
 					this.gameObject.audio.Stop();
+					
+					
           			//Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
 					// mark enemy as dead
 					Hero hero = col2.gameObject.GetComponent<Hero>();
