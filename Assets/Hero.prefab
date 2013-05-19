@@ -343,6 +343,7 @@ MonoBehaviour:
   fist: {fileID: 0}
   punchSound: {fileID: 8300000, guid: 89695d8e4a9f44ae78422ce89ea35d53, type: 3}
   jumpSound: {fileID: 8300000, guid: b21d41e11081d427e93e6adfa9bd8b2f, type: 3}
+  acquireSound: {fileID: 8300000, guid: 69840250d2bcf411481d5174cf152c61, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
