@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour {
  	public GameObject Explosion;
 	
 	int speed = 2;
-	int HP = 2;
+	public int HP = 2;
 	
 	private const float hitRate = 0.5f; // Half a second delay before you can hit again...
 	float hitdelay;
@@ -27,12 +27,23 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 	
+	
+	void onCollisionExit(Collision col){
+		this.collider.enabled = true;
+		this.rigidbody.useGravity = true;
+	}
+	
 	void OnCollisionEnter(Collision col2){
 		
 		if(col2.gameObject.tag == "benedict"){
-			if (HP <= 0){
+			if (HP <= 0){ //Explodes if already dead by the time Benedict gets there
 				Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
 				DestroyObject(this.gameObject);
+			}
+			else{
+				this.rigidbody.useGravity = false;
+				this.collider.enabled = false;
+				StartCoroutine ("reappear");
 			}
 		}
 		
@@ -73,5 +84,13 @@ public class Enemy : MonoBehaviour {
 	
 	void Fire() {
 		// shoot fire in direction
+	}
+	
+	
+	IEnumerator reappear(){
+		
+		yield return new WaitForSeconds(1.5f);
+		this.collider.enabled = true;
+		this.rigidbody.useGravity = true;
 	}
 }

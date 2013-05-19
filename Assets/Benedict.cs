@@ -73,7 +73,18 @@ public class Benedict : Player {
 
 	}
 	
+	
 	void OnCollisionEnter (Collision collision) {
+		
+		if (collision.gameObject.tag == "explode"){
+			Enemy hcheck = collision.gameObject.GetComponent<Enemy>();
+			if (hcheck.HP > 0){
+			}
+			else{
+				
+			}
+		}
+		
 		if (collision.gameObject.tag == "block") {
 			Block block = collision.gameObject.GetComponent<Block>();
 			if (block.IsBroken && isSlow == false) {
