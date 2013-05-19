@@ -9,11 +9,14 @@ public class GameManager : MonoBehaviour {
 	public GameObject endLevel1;
 	
 	public Event[] events = new Event[3];
+	
+	public GameObject player1Start;
+	public GameObject player2Start;
 
 
 	// Use this for initialization
 	void Start () {
-		GameObject hero = GameObject.Instantiate(Hero, new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z +10), Quaternion.identity) as GameObject;
+		GameObject hero = GameObject.Instantiate(Hero, player1Start.transform.position, Quaternion.Euler(90,180,0)) as GameObject;
 		Camera.main.GetComponent<CameraFollow>().player = hero;
 	}
 	
@@ -24,6 +27,9 @@ public class GameManager : MonoBehaviour {
 	
 	void EndLevel1(){
 		Hero.SetActive(false);
+		
+		GameObject hero = GameObject.Instantiate(Benedict, player2Start.transform.position, Quaternion.identity) as GameObject;
+		Camera.main.GetComponent<CameraFollow>().player = hero;
 		
 	}
 }

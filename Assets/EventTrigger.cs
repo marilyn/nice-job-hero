@@ -47,7 +47,7 @@ public class EventTrigger : MonoBehaviour {
 	}
 	
 	public void Play(){
-		
+		player.GetComponent<Player>().stopInput = true;
 		InvokeRepeating("play", 0, .005f);
 	}
 	
@@ -55,6 +55,9 @@ public class EventTrigger : MonoBehaviour {
 	void play(){
 		if(i < posInEvent.Count){
 			player.transform.position = posInEvent[i];
+		}else{
+			player.GetComponent<Player>().stopInput = false;
+			CancelInvoke("play");	
 		}
 		i++;
 		
