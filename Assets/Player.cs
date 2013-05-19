@@ -58,7 +58,7 @@ public class Player : MonoBehaviour {
 		}
 		
 		
-		if(collision.gameObject.tag == "explode" && this.tag == "hero"){
+		if(collision.gameObject.tag == "explode" && this.tag == "hero" && collision.gameObject.GetComponent<Enemy>().HP > 0){
 			
 			BoxCollider bc = this.transform.FindChild ("fist").GetComponent<BoxCollider>();
 			if(bc.bounds.size.x == 0){
