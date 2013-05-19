@@ -22,14 +22,6 @@ public class Benedict : Player {
 	}
 	
 	void Update(){
-		/*if(!isOnGround){
-			if(this.rigidbody.velocity.y < 0){
-				this.renderer.material.SetTexture("_MainTex", jump[jump.Length-1]);	
-			}
-			if(this.rigidbody.velocity.y > 0){
-				this.renderer.material.SetTexture("_MainTex", jump[jump.Length-2]);	
-			}
-		}*/
 	}
 	
 	float walkFrame=0;
@@ -51,31 +43,24 @@ public class Benedict : Player {
 		//if(!stopInput){
 		
 			if(Input.GetKey(KeyCode.LeftArrow)){
-			//Debug.Log ("FUCK");
 				
-				//if(direction != FaceDirection.Right){
-					direction = FaceDirection.Right;
-					this.renderer.material.SetTextureScale("_MainTex", new Vector2(-(int)direction,1));
-					//if(isOnGround){
+				direction = FaceDirection.Right;
+				this.renderer.material.SetTextureScale("_MainTex", new Vector2(-(int)direction,1));
 					
-						this.renderer.material.SetTexture("_MainTex", run[(int)walkFrame]);
-						WalkFrame+=.25f;
+				this.renderer.material.SetTexture("_MainTex", run[(int)walkFrame]);
+				WalkFrame+=.25f;
 					
-					//}
-				//}
-				
 				this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));	
 	
 			}
 			
 			else if(Input.GetKey(KeyCode.RightArrow)){
 				
-
-					direction = FaceDirection.Left;
-					this.renderer.material.SetTextureScale("_MainTex", new Vector2(-(int)direction,1));
-					
-					this.renderer.material.SetTexture("_MainTex", run[(int)walkFrame]);
-					WalkFrame+=.25f;
+				direction = FaceDirection.Left;
+				this.renderer.material.SetTextureScale("_MainTex", new Vector2(-(int)direction,1));
+				
+				this.renderer.material.SetTexture("_MainTex", run[(int)walkFrame]);
+				WalkFrame+=.25f;
 				
 	
 				this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));	

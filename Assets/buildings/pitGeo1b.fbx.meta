@@ -1,20 +1,13 @@
 fileFormatVersion: 2
-guid: 0aef9bb5749de43f1b581b0f2c721ad0
+guid: f040091fe7e0a4b62b0ced7a31483035
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
     100000: //RootNode
-    100002: chapel_geo
-    100004: cross_geo
     400000: //RootNode
-    400002: chapel_geo
-    400004: cross_geo
-    2300000: chapel_geo
-    2300002: cross_geo
-    3300000: chapel_geo
-    3300002: cross_geo
-    4300000: chapel_geo
-    4300002: cross_geo
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pitGeo
     9500000: //RootNode
   materials:
     importMaterials: 1
