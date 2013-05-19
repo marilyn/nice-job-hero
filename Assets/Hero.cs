@@ -9,6 +9,7 @@ public class Hero : Player {
 	
 	public int GetPoints{
 		get { return points; }
+		set { points = value; }
 	}
 
 	// Use this for initialization
@@ -57,6 +58,10 @@ public class Hero : Player {
 			Charm charm = obj.GetComponent<Charm>();
 			points += charm.GetPoints;
 		}
+	}
+	
+	public void AddPoints(int points) {
+		this.points += points;
 	}
 	
 	IEnumerator Punch(){
