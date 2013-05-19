@@ -21,11 +21,12 @@ public class Block : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject.tag == "fist" && isBroken == false) {
+			Hero hero = collision.gameObject.GetComponent<Hero>();
 			isBroken = true;	
 			foreach (Rigidbody shard in this.GetComponentsInChildren<Rigidbody>()) {
 				shard.useGravity = true;
 				shard.isKinematic = false;
-				// explode?
+				shard.AddExplosionForce(1,new Vector3((int)hero.direction,0,0),1);
 			}
 		} 
 		
