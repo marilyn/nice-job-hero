@@ -85,6 +85,8 @@ public class Enemy : MonoBehaviour {
           	nextFireTime = Time.time + fireRate;
 			Fire();
 		}
+				
+		this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));	
 	}
 	
 	void Fire() {
