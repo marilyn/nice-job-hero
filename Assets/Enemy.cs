@@ -109,10 +109,8 @@ public class Enemy : MonoBehaviour {
 				
 				if (HP == 0){
 					//DestroyObject(this.gameObject);
-					this.gameObject.renderer.material.SetColor("_Color", Color.red);
 					speed = 0;
 					this.gameObject.audio.Stop();
-					
 					
           			//Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
 					// mark enemy as dead
@@ -140,9 +138,15 @@ public class Enemy : MonoBehaviour {
 				
 		this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));		
 		
-		this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)direction,1));
-		this.renderer.material.SetTexture("_MainTex", move[(int)moveFrame]); 
-		moveFrame+=.5f;
+		if(speed != 0) {
+			this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)direction,1));
+			this.renderer.material.SetTexture("_MainTex", move[(int)moveFrame]); 
+			MoveFrame+=.5f;
+		} else {
+			this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)direction,1));
+			this.renderer.material.SetTexture("_MainTex", die[(int)dieFrame]); 
+			DieFrame+=.2f;
+		}
 	}
 	
 	void Fire() {
