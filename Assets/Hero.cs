@@ -15,6 +15,7 @@ public class Hero : Player {
 	void Start () {
 		points = 0;
 		fist = gameObject.transform.FindChild("fist").gameObject;
+		fist.tag = "fist"; //So the punching code will know where to look
 	}
 	
 	// Update is called once per frame
