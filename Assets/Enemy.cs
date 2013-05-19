@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour {
 					//DestroyObject(this.gameObject);
 					this.gameObject.renderer.material.SetColor("_Color", Color.red);
 					speed = 0;
+					this.gameObject.audio.Stop();
           			//Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
 					// mark enemy as dead
 					Hero hero = col2.gameObject.GetComponent<Hero>();
