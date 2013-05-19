@@ -19,6 +19,51 @@ public class Enemy : MonoBehaviour {
 	public GameObject flame;
 	public GameObject sampleFlame;
 	
+	public Texture idle;
+	public Texture[] move = new Texture[4];
+	public Texture[] fire = new Texture[8];
+	public Texture[] die = new Texture[10];
+	public Texture[] docile = new Texture[10];
+	
+	float moveFrame=0;
+	
+	float MoveFrame{
+		get{ return moveFrame; }
+		set{
+			if(value == move.Length){
+				moveFrame = 0;	
+			}
+			else{
+				moveFrame = value;	
+			}
+		}
+	}
+	
+	float dieFrame=0;
+	
+	float DieFrame{
+		get{ return dieFrame; }
+		set{
+			if(value < die.Length){
+				dieFrame = value;	
+			} 
+		}
+	}
+	
+	float docileFrame=0;
+	
+	float DocileFrame{
+		get{ return docileFrame; }
+		set{
+			if(value == docile.Length){
+				docileFrame = 0;	
+			}
+			else{
+				docileFrame = value;	
+			} 
+		}
+	}
+	
 	// Use this for initialization
 	void Start () {
 		direction = Player.FaceDirection.Left;
@@ -93,7 +138,11 @@ public class Enemy : MonoBehaviour {
 			}
 		}
 				
-		this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));	
+		this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));		
+		
+		this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)direction,1));
+		this.renderer.material.SetTexture("_MainTex", move[(int)moveFrame]);
+		moveFrame+=.5f;
 	}
 	
 	void Fire() {
