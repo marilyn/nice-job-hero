@@ -14,8 +14,14 @@ incites them to collect more lucky charms while fighting bad guy(s).
 Only to find out that the player must now play as a regular human who must deal
 with the fall out of their actions as the hero.
 
+Creators
+========
+
 Created by nikcdc@gmail.com, marilyn@gtf.org, jonathan.wallace@gmail.com,
-brianruggieri@gmail.com, jef.e.freydl@gmail.com, nhjpak@gmail.com
+brianruggieri@gmail.com, jef.e.freydl@gmail.com, and nhjpak@gmail.com.
+
+Attributions
+============
 
 Thanks to the following open source audio clips used in the making of this game.
 
