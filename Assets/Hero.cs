@@ -22,9 +22,16 @@ public class Hero : Player {
 		set { points = value; }
 	}
 
+  private float health;
+  public float Health {
+		get { return health; }
+		set { health = value; }
+  }
+
 	// Use this for initialization
 	void Start () {
 		points = 0;
+    Health = 100;
 		fist = gameObject.transform.FindChild("fist").gameObject;
 		fist.tag = "fist"; //So the punching code will know where to look
     	nextPunchTime = Time.time + punchRate;

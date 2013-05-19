@@ -9,6 +9,7 @@ public class HUD : MonoBehaviour {
 	// an int between 0 and 100
 	public int luck;
 	public int points;
+  public float health;
 	
 
 	// Use this for initialization
@@ -27,6 +28,7 @@ public class HUD : MonoBehaviour {
 		}
 		
 		points = hero.GetPoints;
+    health = hero.Health;
 		if(benedict != null){
 			luck = benedict.GetLuck;
 		}
@@ -49,7 +51,7 @@ public class HUD : MonoBehaviour {
 
 		if (hero != null && hero.gameObject.activeSelf) {
       		GUI.Box (new Rect (0,25,100,100), string.Format ("Points: {0}", points));
-      		GUI.Box (new Rect (0,50,100,100), string.Format ("Health: {0}", points));
+      		GUI.Box (new Rect (0,50,100,100), string.Format ("Health: {0}", health));
     	}
     	else 
       		GUI.Box (new Rect (0,25,100,100), string.Format ("Luck: {0}", luck));
