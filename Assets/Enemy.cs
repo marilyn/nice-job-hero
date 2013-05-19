@@ -11,14 +11,20 @@ public class Enemy : MonoBehaviour {
 	
 	private const float hitRate = 0.5f; // Half a second delay before you can hit again...
 	float hitdelay;
+	float nextFireTime;
+	float fireRate = 10;
 	
 	int points = 250;
+	
+	public GameObject flame;
+	public GameObject sampleFlame;
 	
 	// Use this for initialization
 	void Start () {
 		direction = Player.FaceDirection.Left;
 		
 		hitdelay = Time.time + hitRate;
+		nextFireTime = Time.time + fireRate;
 	}
 	
 	void OnTriggerEnter(Collider col){
@@ -54,14 +60,14 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Time.time % 5 == 0) {
+		if (Time.time > nextFireTime) {
+          	nextFireTime = Time.time + fireRate;
 			Fire();
 		}
-	
-		this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));	
 	}
 	
 	void Fire() {
-		// shoot fire in direction
+		flame = GameObject.Instantiate(sampleFlame, new Vector3(this.transform.position.x + (int)direction * 10, this.transform.position.y, this.transform.position.z), Quaternion.Euler(90,180,0)) as GameObject;
+		Destroy(flame,2);
 	}
 }
