@@ -10,6 +10,10 @@ public class Hero : Player {
   private const float punchRate = 0.2f; // the punch sound can only be played 5 times per second
   private float nextPunchTime;
   public AudioClip punchSound;
+
+  private const float jumpRate = 0.2f; // the punch sound can only be played 5 times per second
+  private float nextJumpTime;
+  public AudioClip jumpSound;
 	
 	public int GetPoints{
 		get { return points; }
@@ -22,6 +26,7 @@ public class Hero : Player {
 		fist = gameObject.transform.FindChild("fist").gameObject;
 		fist.tag = "fist"; //So the punching code will know where to look
     nextPunchTime = Time.time + punchRate;
+    nextJumpTime  = Time.time + jumpRate;
 	}
 	
 	void Update(){
@@ -95,13 +100,19 @@ public class Hero : Player {
 
         if (Time.time > nextPunchTime) {
           nextPunchTime = Time.time + punchRate;
-          audio.PlayOneShot(punchSound, 1.0f);
+          audio.PlayOneShot(punchSound, 0.5f);
         }
 			}
 			
 			if(Input.GetKeyDown(KeyCode.Space) && isOnGround){
 				this.rigidbody.velocity = new Vector3(0,-Physics.gravity.y/1.5f,0);
 				this.renderer.material.SetTexture("_MainTex" , jump[0]);
+
+        if (Time.time > nextJumpTime) {
+          nextJumpTime = Time.time + jumpRate;
+          audio.PlayOneShot(jumpSound, 1.0f);
+        }
+
 				IsOnGround = false;
 			}
 		}
