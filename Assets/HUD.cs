@@ -19,18 +19,18 @@ public class HUD : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (GameObject.Find("Hero") != null) {
+		/*if (GameObject.Find("Hero") != null) {
 			hero = GameObject.Find("Hero").GetComponent<Hero>();
 			if (hero == null)
 				print ("hero is null... what is this? " + GameObject.Find("Hero") + " and what is this...? " + GameObject.Find("Hero").GetComponent<Hero>());
 		} else {
 			print ("ERROR");
-		}
+		}*/
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		points = hero.GetPoints;
+		//points = hero.GetPoints;
 		// luck = benedict.GetLuck;
 	}
 	

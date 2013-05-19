@@ -52,11 +52,7 @@ public class Player : MonoBehaviour {
 				}
 			}
 		}*/
-		
 	}
-
-
-
 	
 	public void Cancel(){
 		CancelInvoke("StorePos");	
@@ -71,19 +67,19 @@ public class Player : MonoBehaviour {
 	}
 	
 	void Update(){
-		if(!isOnGround){
+		/*if(!isOnGround){
 			if(this.rigidbody.velocity.y < 0){
 				this.renderer.material.SetTexture("_MainTex", jump[jump.Length-1]);	
 			}
 			if(this.rigidbody.velocity.y > 0){
 				this.renderer.material.SetTexture("_MainTex", jump[jump.Length-2]);	
 			}
-		}
+		}*/
 	}
 	
-	//float runFrame=0;
+	/*float runFrame=0;
 	
-	/*float RunFrame{
+	float RunFrame{
 		get{ return runFrame; }
 		set{
 			if(value == run.Length){
@@ -93,12 +89,12 @@ public class Player : MonoBehaviour {
 				runFrame = value;	
 			}
 		}
-	}
+	}*/
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		
-		if(!stopInput){
+		/*if(!stopInput){
 		
 			if(Input.GetKey(KeyCode.LeftArrow)){
 				
@@ -132,8 +128,12 @@ public class Player : MonoBehaviour {
 				this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));	
 	
 			}
-			else {
+			else if (!punching){
 				this.renderer.material.SetTexture("_MainTex", idle);	
+			}
+			
+			if(Input.GetKey(KeyCode.DownArrow) && !punching){
+				StartCoroutine("Punch");
 			}
 			
 			if(Input.GetKeyDown(KeyCode.Space) && isOnGround){
@@ -141,39 +141,10 @@ public class Player : MonoBehaviour {
 				this.renderer.material.SetTexture("_MainTex" , jump[0]);
 				IsOnGround = false;
 			}
-		}
-	}*/
+		}*/
+	}
 	
-	//int punchType = 0;
-	//bool punching = false;
-	
-	/*IEnumerator Punch(){
-		fist.transform.position = new Vector3(this.transform.position.x + this.collider.bounds.extents.x * -(int)direction, fist.transform.position.y, fist.transform.position.z);
-		
-		
-		BoxCollider bc = fist.GetComponent<BoxCollider>();
-		int i = 0;
-		punching = true;
-		while(fist.collider.bounds.size.x <= 1){
-			if(i < 8) this.renderer.material.SetTexture("_MainTex", punch[(int)(punchType)*7]);
-			else{
-				this.renderer.material.SetTexture("_MainTex", punch[(int)(punchType)*7 + 1]);
-			}
-			bc.size = new Vector3(bc.size.x - .3f, bc.size.y, bc.size.z);
-			bc.center =  new Vector3(bc.center.x - .15f * -(int)direction, bc.center.y,bc.center.z);
-			i++;
-			yield return null;
-		}
-		
-		yield return new WaitForSeconds(.2f);
-		bc.size = new Vector3(0, bc.size.y, bc.size.z);
-		fist.transform.position = new Vector3(this.transform.position.x - this.collider.bounds.extents.x, fist.transform.position.y, fist.transform.position.z);
-		bc.center = Vector3.zero;
-		punching = false;
-		punchType = (int)Random.Range(0.0f,2.0f);
-		
-	}*/
-	
+
 
 	public virtual void acquires(GameObject charm) {
 

@@ -1,25 +1,13 @@
 fileFormatVersion: 2
-guid: 3881bd2a0c5844e008edfe7b3239a480
+guid: f475da42ea0d94ee2b09f7858800b4f7
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
-    100000: awningSupport1
-    100002: awningSupport2
-    100004: //RootNode
-    100006: hotelMain
-    400000: awningSupport1
-    400002: awningSupport2
-    400004: //RootNode
-    400006: hotelMain
-    2300000: awningSupport1
-    2300002: awningSupport2
-    2300004: hotelMain
-    3300000: awningSupport1
-    3300002: awningSupport2
-    3300004: hotelMain
-    4300000: hotelMain
-    4300002: awningSupport1
-    4300004: awningSupport2
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pCube1
     9500000: //RootNode
   materials:
     importMaterials: 1
