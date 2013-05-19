@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 	
 	public enum FaceDirection { Left  = -1, Right = 1}
 	
-	protected FaceDirection direction;
+	public FaceDirection direction;
 
 	protected bool isOnGround;
 	
