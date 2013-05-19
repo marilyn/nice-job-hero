@@ -54,7 +54,14 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(Time.time % 5 == 0) {
+			Fire();
+		}
 	
 		this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));	
+	}
+	
+	void Fire() {
+		// shoot fire in direction
 	}
 }
