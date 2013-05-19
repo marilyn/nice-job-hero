@@ -6,9 +6,9 @@ public class Player : MonoBehaviour {
 	
 	public enum FaceDirection { Left  = -1, Right = 1}
 	
-	FaceDirection direction;
+	protected FaceDirection direction;
 
-	private bool isOnGround;
+	protected bool isOnGround;
 	
 	public int speed;
 	
@@ -20,16 +20,12 @@ public class Player : MonoBehaviour {
 	}
 	
 	public List<Vector3> posInTime = new List<Vector3>();
-		
-	
-	public GameObject fist;
 	
 	bool wallRight = false;
 	bool wallLeft = false;
 	
 	void Start(){
 		direction = FaceDirection.Right;	
-		fist = gameObject.transform.FindChild("fist").gameObject;
 		
 		trigger = GameObject.Find("EventTrigger").GetComponent<EventTrigger>();
 		
@@ -85,10 +81,6 @@ public class Player : MonoBehaviour {
 
 		}
 		
-		if(Input.GetKey(KeyCode.DownArrow)){
-			StartCoroutine(Punch());
-		}
-		
 		if(Input.GetKeyDown(KeyCode.Space) && isOnGround){
 			this.rigidbody.velocity = new Vector3(0,-Physics.gravity.y/1.5f,0);
 			IsOnGround = false;
@@ -99,25 +91,7 @@ public class Player : MonoBehaviour {
 		}
 	}
 	
-	IEnumerator Punch(){
-		fist.transform.position = new Vector3(this.transform.position.x + this.collider.bounds.extents.x * (int)direction, fist.transform.position.y, fist.transform.position.z);
-		
-		BoxCollider bc = fist.GetComponent<BoxCollider>();
-		
-		while(fist.collider.bounds.size.x <= 1){
-			bc.size = new Vector3(bc.size.x + .3f, bc.size.y, bc.size.z);
-			bc.center =  new Vector3(bc.center.x + .15f * (int)direction, bc.center.y,bc.center.z);
-			yield return null;
-		}
-		
-		yield return new WaitForSeconds(.2f);
-		bc.size = new Vector3(0, bc.size.y, bc.size.z);
-		fist.transform.position = new Vector3(this.transform.position.x + this.collider.bounds.extents.x, fist.transform.position.y, fist.transform.position.z);
-		bc.center = Vector3.zero;
-		
-	}
-	
-	public void acquires(GameObject charm) {
+	public virtual void acquires(GameObject charm) {
 		// should be overridden in subclass for the specific behavior
 	}
 }
