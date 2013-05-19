@@ -27,10 +27,10 @@ GameObject:
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
   - 54: {fileID: 5400000}
-  - 114: {fileID: 11400000}
   - 65: {fileID: 6500002}
+  - 114: {fileID: 11400000}
   m_Layer: 9
-  m_Name: Player
+  m_Name: Hero
   m_TagString: hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,8 +53,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: -1.15202326e-07, y: .707106709, z: -.707106829, w: -1.15202312e-07}
-  m_LocalPosition: {x: 0, y: -.0136995614, z: 0}
+  m_LocalRotation: {x: -1.15202326e-07, y: -.707106709, z: .707106829, w: -1.15202312e-07}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children:
   - {fileID: 400000}
@@ -121,7 +121,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: -11.1400003, z: 5.9000001}
+  m_Size: {x: 4, y: -11.1099997, z: 5.9000001}
   m_Center: {x: 5.96046448e-08, y: 0, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09918a4d2d10f4e5593a5fc84b23ac04, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cd86e45510cc4a66a380dea93c9e24d, type: 3}
   m_Name: 
   speed: 5
   idle: {fileID: 2800000, guid: 960d1e4245b884b5ca8e4a0428986907, type: 3}
@@ -154,20 +154,22 @@ MonoBehaviour:
   punch:
   - {fileID: 2800000, guid: d9af21c4405e04e7b864360acef158c6, type: 3}
   - {fileID: 2800000, guid: fba09ec4c1a23411db69d0bf04cb9d42, type: 3}
-  - {fileID: 2800000, guid: ca747bca6200b4aa4a45f2fc005013eb, type: 3}
-  - {fileID: 2800000, guid: 6073035c6e0794defa782929013af906, type: 3}
-  - {fileID: 2800000, guid: c84ea7cf7e9e8468c9cbe6d60720ae05, type: 3}
-  - {fileID: 2800000, guid: 8f338359fc1f04c13ae75472eeba1cc9, type: 3}
-  - {fileID: 2800000, guid: 2c2da655d77084671a84e99f7beb3a3f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 2800000, guid: c352cb9aab9f6417da121b88a0ae9ca7, type: 3}
   - {fileID: 2800000, guid: 77f356e3290ab4355bf4e7824476e9e1, type: 3}
-  - {fileID: 2800000, guid: 77f356e3290ab4355bf4e7824476e9e1, type: 3}
-  - {fileID: 2800000, guid: a0ed6b50c6b684ff5b81fc96805c15e4, type: 3}
-  - {fileID: 2800000, guid: 466e71efa9934410fa9f2c8c7e3414b0, type: 3}
-  - {fileID: 2800000, guid: c04dbe8cad0a84b8184ec836b8df00ff, type: 3}
-  - {fileID: 2800000, guid: 041c6bcc4ff2a43549ac3b8be2f053f1, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   posInTime: []
   stopInput: 0
+  points: 0
+  fist: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		GameObject hero = GameObject.Instantiate(Hero, player1Start.transform.position, Quaternion.Euler(90,180,0)) as GameObject;
 		Camera.main.GetComponent<CameraFollow>().player = hero;
+		hero.name = "Hero";
 	}
 	
 	// Update is called once per frame

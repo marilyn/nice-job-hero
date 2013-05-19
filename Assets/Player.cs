@@ -6,9 +6,9 @@ public class Player : MonoBehaviour {
 	
 	public enum FaceDirection { Left  = -1, Right = 1}
 	
-	FaceDirection direction;
+	protected FaceDirection direction;
 
-	private bool isOnGround;
+	protected bool isOnGround;
 	
 	public int speed;
 	
@@ -25,9 +25,6 @@ public class Player : MonoBehaviour {
 	}
 	
 	public List<Vector3> posInTime = new List<Vector3>();
-		
-	
-	public GameObject fist;
 	
 	public bool stopInput = false;
 	
@@ -36,7 +33,6 @@ public class Player : MonoBehaviour {
 	
 	void Start(){
 		direction = FaceDirection.Right;	
-		fist = gameObject.transform.FindChild("fist").gameObject;
 		
 		//trigger = GameObject.Find("EventTrigger").GetComponent<EventTrigger>();
 		
@@ -48,22 +44,19 @@ public class Player : MonoBehaviour {
 			IsOnGround = true;	
 		}
 		
+		/*
 		foreach(Event e in Camera.main.GetComponent<GameManager>().events){
 			if(e !=null){
 				if(collision.gameObject == e.collisionEventObject){
 					e.playerHasCollided = true;	
 				}
 			}
-		}
+		}*/
 		
-		if(collision.gameObject == Camera.main.GetComponent<GameManager>().endLevel1){
-			
-		}
 	}
-	
-	/*void StorePos(){
-		posInTime.Add(this.transform.position);	
-	}*/
+
+
+
 	
 	public void Cancel(){
 		CancelInvoke("StorePos");	
@@ -88,9 +81,9 @@ public class Player : MonoBehaviour {
 		}
 	}
 	
-	float runFrame=0;
+	//float runFrame=0;
 	
-	float RunFrame{
+	/*float RunFrame{
 		get{ return runFrame; }
 		set{
 			if(value == run.Length){
@@ -139,12 +132,8 @@ public class Player : MonoBehaviour {
 				this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));	
 	
 			}
-			else if (!punching){
+			else {
 				this.renderer.material.SetTexture("_MainTex", idle);	
-			}
-			
-			if(Input.GetKey(KeyCode.DownArrow) && !punching){
-				StartCoroutine("Punch");
 			}
 			
 			if(Input.GetKeyDown(KeyCode.Space) && isOnGround){
@@ -152,14 +141,13 @@ public class Player : MonoBehaviour {
 				this.renderer.material.SetTexture("_MainTex" , jump[0]);
 				IsOnGround = false;
 			}
-			
 		}
-	}
-
-	int punchType = 0;
-	bool punching = false;
+	}*/
 	
-	IEnumerator Punch(){
+	//int punchType = 0;
+	//bool punching = false;
+	
+	/*IEnumerator Punch(){
 		fist.transform.position = new Vector3(this.transform.position.x + this.collider.bounds.extents.x * -(int)direction, fist.transform.position.y, fist.transform.position.z);
 		
 		
@@ -183,9 +171,12 @@ public class Player : MonoBehaviour {
 		bc.center = Vector3.zero;
 		punching = false;
 		punchType = (int)Random.Range(0.0f,2.0f);
-	}
+		
+	}*/
 	
-	public void acquires(GameObject charm) {
+
+	public virtual void acquires(GameObject charm) {
+
 		// should be overridden in subclass for the specific behavior
 	}
 }

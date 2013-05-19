@@ -26,7 +26,7 @@ public class Charm : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter(Collision collision){
-		if(collision.gameObject.tag == "hero"){
+		if(collision.gameObject.tag == "hero" || collision.gameObject.tag == "benedict"){
 			acquirer = collision.gameObject.GetComponent<Player>();
 			StartCoroutine(Acquired());	
 		}

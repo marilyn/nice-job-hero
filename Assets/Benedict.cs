@@ -7,6 +7,10 @@ public class Benedict : Player {
 	
 	private int luck;
 	
+	public int GetLuck{
+		get { return luck; }
+	}
+	
 	public bool IsSlow{
 		get { return isSlow; }
 	}
@@ -14,6 +18,7 @@ public class Benedict : Player {
 	// Use this for initialization
 	void Start () {
 		isSlow = false;
+		luck = 50;
 	}
 	
 	// Update is called once per frame
@@ -41,10 +46,15 @@ public class Benedict : Player {
 		}
 	}
 	
-	new public void acquires(GameObject obj) {
+	public override void acquires(GameObject obj) {
 		if (obj.tag == "charm") {
 			Charm charm = obj.GetComponent<Charm>();
 			luck += charm.GetLuck;
+			
+			// Max out luck at 100
+			if (luck > 100) {
+				luck = 100;
+			}
 		}
 	}
 	
