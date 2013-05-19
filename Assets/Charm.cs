@@ -20,9 +20,8 @@ public class Charm : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	void Update(){
+		transform.position = new Vector3 (transform.position.x , transform.position.y + (Mathf.PingPong(Time.time, 2) - 1)/100, transform.position.z);
 	}
 	
 	void OnCollisionEnter(Collision collision){

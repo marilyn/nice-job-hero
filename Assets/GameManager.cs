@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
 	
 	public Material sky1;
 	public Material sky2;
+	
+	public GameObject screenGO;
 
 
 	// Use this for initialization
@@ -39,6 +41,9 @@ public class GameManager : MonoBehaviour {
 	public void EndLevel1(){
 		if(currentPlayer.name == "Hero"){
 			currentPlayer.SetActive(false);
+			
+			screenGO.SetActive(true);
+			screenGO.GetComponent<Screen>().ChangeScreen();
 			
 			Camera.main.GetComponent<Skybox>().material = sky2;
 			RenderSettings.ambientLight = Color.black;

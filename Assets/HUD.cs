@@ -35,28 +35,31 @@ public class HUD : MonoBehaviour {
 	}
 	
 	void OnGUI() {
-		float width  = Camera.main.pixelWidth;
-		float height = Camera.main.pixelHeight;
-			
-		// Timer and Points
-		// Make a group on the center of the screen
-    	if (hero != null && hero.gameObject.activeSelf)
-      		GUI.BeginGroup (new Rect (width - 110, 10, 150, 75));
-    	else
-      		GUI.BeginGroup (new Rect (width - 110, 10, 150, 50));
-
-		// We'll make a box so you can see where the group is on-screen.
 		
-		GUI.Box (new Rect (0,0,100,100), string.Format ("Time: {0:0}:{1:00}", Mathf.Floor (Time.time/60), Time.time % 60));
+		if(!Camera.main.GetComponent<GameManager>().screenGO.activeSelf){
+			float width  = Camera.main.pixelWidth;
+			float height = Camera.main.pixelHeight;
+				
+			// Timer and Points
+			// Make a group on the center of the screen
+			if (hero != null && hero.gameObject.activeSelf)
+				GUI.BeginGroup (new Rect (width - 110, 10, 150, 75));
+			else
+				GUI.BeginGroup (new Rect (width - 110, 10, 150, 50));
 
-		if (hero != null && hero.gameObject.activeSelf) {
-      		GUI.Box (new Rect (0,25,100,100), string.Format ("Points: {0}", points));
-      		GUI.Box (new Rect (0,50,100,100), string.Format ("Health: {0}", Mathf.Floor (health)));
-    	}
-    	else 
-      		GUI.Box (new Rect (0,25,100,100), string.Format ("Luck: {0}", luck));
+			// We'll make a box so you can see where the group is on-screen.
+			
+			GUI.Box (new Rect (0,0,100,100), string.Format ("Time: {0:0}:{1:00}", Mathf.Floor (Time.time/60), Time.time % 60));
 
-		// End the group we started above. This is very important to remember!
-		GUI.EndGroup ();
+			if (hero != null && hero.gameObject.activeSelf) {
+				GUI.Box (new Rect (0,25,100,100), string.Format ("Points: {0}", points));
+				GUI.Box (new Rect (0,50,100,100), string.Format ("Health: {0}", Mathf.Floor (health)));
+			}
+			else 
+				GUI.Box (new Rect (0,25,100,100), string.Format ("Luck: {0}", luck));
+
+			// End the group we started above. This is very important to remember!
+			GUI.EndGroup ();
+		}
     }
 }
