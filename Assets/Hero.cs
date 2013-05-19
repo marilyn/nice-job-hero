@@ -98,20 +98,20 @@ public class Hero : Player {
 			if(Input.GetKey(KeyCode.DownArrow) && !punching){
 				StartCoroutine("Punch");
 
-        if (Time.time > nextPunchTime) {
-          nextPunchTime = Time.time + punchRate;
-          audio.PlayOneShot(punchSound, 0.5f);
-        }
+        		if (Time.time > nextPunchTime) {
+          			nextPunchTime = Time.time + punchRate;
+          			audio.PlayOneShot(punchSound, 0.5f);
+        		}
 			}
 			
 			if(Input.GetKeyDown(KeyCode.Space) && isOnGround){
-				this.rigidbody.velocity = new Vector3(0,-Physics.gravity.y/1.5f,0);
+				this.rigidbody.velocity = new Vector3(0,-Physics.gravity.y/.9f,0);
 				this.renderer.material.SetTexture("_MainTex" , jump[0]);
 
-        if (Time.time > nextJumpTime) {
-          nextJumpTime = Time.time + jumpRate;
-          audio.PlayOneShot(jumpSound, 1.0f);
-        }
+        		if (Time.time > nextJumpTime) {
+          			nextJumpTime = Time.time + jumpRate;
+          			audio.PlayOneShot(jumpSound, 1.0f);
+        		}
 
 				IsOnGround = false;
 			}
