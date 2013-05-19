@@ -15,6 +15,8 @@ public class Hero : Player {
   private float nextJumpTime;
   public AudioClip jumpSound;
 	
+	public AudioClip acquireSound;
+	
 	public int GetPoints{
 		get { return points; }
 		set { points = value; }
@@ -25,8 +27,8 @@ public class Hero : Player {
 		points = 0;
 		fist = gameObject.transform.FindChild("fist").gameObject;
 		fist.tag = "fist"; //So the punching code will know where to look
-    nextPunchTime = Time.time + punchRate;
-    nextJumpTime  = Time.time + jumpRate;
+    	nextPunchTime = Time.time + punchRate;
+    	nextJumpTime  = Time.time + jumpRate;
 	}
 	
 	void Update(){
@@ -122,6 +124,7 @@ public class Hero : Player {
 		if (obj.tag == "charm") {
 			Charm charm = obj.GetComponent<Charm>();
 			points += charm.GetPoints;
+			audio.PlayOneShot(acquireSound, 1.0f);
 		}
 	}
 	
