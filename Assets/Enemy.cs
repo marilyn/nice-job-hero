@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour {
 				HP--;
 				this.rigidbody.velocity = new Vector3(-4 * (int) direction, -Physics.gravity.y/1.2f,0);
 				
-				if (HP <= 0){
+				if (HP == 0){
 					//DestroyObject(this.gameObject);
 					this.gameObject.renderer.material.SetColor("_Color", Color.red);
 					speed = 0;
