@@ -14,10 +14,17 @@ public class GameManager : MonoBehaviour {
 	public GameObject player2Start;
 
 	public GameObject currentPlayer;
+	
+	public Material sky1;
+	public Material sky2;
 
 
 	// Use this for initialization
 	void Start () {
+		
+		Camera.main.GetComponent<Skybox>().material = sky1;
+		
+		
 		currentPlayer = GameObject.Instantiate(Hero, player1Start.transform.position, Quaternion.Euler(90,180,0)) as GameObject;
 		Camera.main.GetComponent<CameraFollow>().player = currentPlayer;
 		currentPlayer.SetActive(true);
@@ -32,6 +39,9 @@ public class GameManager : MonoBehaviour {
 	public void EndLevel1(){
 		if(currentPlayer.name == "Hero"){
 			currentPlayer.SetActive(false);
+			
+			Camera.main.GetComponent<Skybox>().material = sky2;
+			RenderSettings.ambientLight = Color.black;
 			
 			currentPlayer = GameObject.Instantiate(Benedict, player1Start.transform.position, Quaternion.Euler(90,180,0)) as GameObject;
 			Camera.main.GetComponent<CameraFollow>().player = currentPlayer;
