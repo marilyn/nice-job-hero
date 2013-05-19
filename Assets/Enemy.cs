@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour {
 		
 		if(col2.transform.FindChild("fist")){
 			BoxCollider bc = col2.transform.FindChild ("fist").GetComponent<BoxCollider>();
-			if(bc.bounds.size.x > 0 && Time.time > hitdelay){
+			if(bc.bounds.size.x > 0 && Time.time > hitdelay && HP > 0){
 				
 				hitdelay = Time.time + hitRate;
 				HP--;
