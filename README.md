@@ -3,6 +3,17 @@ nice-job-hero
 
 Bad luck game for Athens Summer Game Jam 2013
 
+You can currently access (one version of) the game at: http://marilynccole.com/nice-job-hero/.
+
+Narrative
+=========
+
+The player starts out as a traditional hero with bombastic theme music that
+incites them to collect more lucky charms while fighting bad guy(s).
+
+Only to find out that the player must now play as a regular human who must deal
+with the fall out of their actions as the hero.
+
 Created by nikcdc@gmail.com, marilyn@gtf.org, jonathan.wallace@gmail.com,
 brianruggieri@gmail.com, jef.e.freydl@gmail.com, nhjpak@gmail.com
 
