@@ -38,7 +38,9 @@ public class Enemy : MonoBehaviour {
 				this.rigidbody.velocity = new Vector3(-4 * (int) direction, -Physics.gravity.y/1.2f,0);
 				
 				if (HP <= 0){
-					DestroyObject(this.gameObject);
+					//DestroyObject(this.gameObject);
+					this.gameObject.renderer.material.SetColor("_Color", Color.red);
+					speed = 0;
           			//Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
 					// mark enemy as dead
 					Hero hero = col2.gameObject.GetComponent<Hero>();
