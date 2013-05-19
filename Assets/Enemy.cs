@@ -75,6 +75,11 @@ public class Enemy : MonoBehaviour {
 					hero.AddPoints(this.points);
 				}
 			}
+			//Remove health if not punching...
+			else{
+				
+				
+			}
 		}
 	}
 	
