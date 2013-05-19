@@ -43,11 +43,12 @@ public class HUD : MonoBehaviour {
 		GUI.BeginGroup (new Rect (width - 110, 10, 150, 50));
 
 		// We'll make a box so you can see where the group is on-screen.
-		GUI.Box (new Rect (0,0,100,100), string.Format ("Time: {0}", Time.time.ToString("#")));
 		
+		GUI.Box (new Rect (0,0,100,100), string.Format ("Time: {0:0}:{1:00}", Mathf.Floor (Time.time/60), Time.time % 60));
+
 		// Add conditional here: if on hero run
 		GUI.Box (new Rect (0,25,100,100), string.Format ("Points: {0}", points));
-		
+
 		// End the group we started above. This is very important to remember!
 		GUI.EndGroup ();
 		

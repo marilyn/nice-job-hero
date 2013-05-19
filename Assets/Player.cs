@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
 			IsOnGround = true;	
 		}
 		
+		/*
 		foreach(Event e in Camera.main.GetComponent<GameManager>().events){
 			if(e !=null){
 				if(collision.gameObject == e.collisionEventObject){
@@ -44,6 +45,7 @@ public class Player : MonoBehaviour {
 				}
 			}
 		}
+		*/
 	}
 	
 	void StorePos(){
