@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: diagonal_patterned_long_bricks_011708_square
+  m_Name: apartment_bldg_texture
   m_Shader: {fileID: 7, guid: 0000000000000000e000000000000000, type: 0}
   m_ShaderKeywords: []
   m_SavedProperties:
@@ -16,8 +16,8 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 0f0561e9d1efc432f85e06c637c099dc, type: 3}
-          m_Scale: {x: 1, y: .200000003}
+          m_Texture: {fileID: 2800000, guid: bd67c797fd8c1431ba257c3d4e81d45f, type: 3}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats: {}
     m_Colors:
