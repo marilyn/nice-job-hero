@@ -44,7 +44,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: ec03d908ec1bd4fb0bbfa624c0820641, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -194,6 +194,25 @@ MonoBehaviour:
   HP: 2
   flame: {fileID: 0}
   sampleFlame: {fileID: 0}
+  idle: {fileID: 2800000, guid: cc2983e9364774458a96fde279246d02, type: 3}
+  move:
+  - {fileID: 2800000, guid: 5c7c895e21c0b420f900cf205b398d6e, type: 3}
+  - {fileID: 2800000, guid: f45e18405af264af9a2df421421a3bda, type: 3}
+  - {fileID: 2800000, guid: 82270af105f7942d7bea3000316987d2, type: 3}
+  - {fileID: 2800000, guid: 1182960f441824fff9f7c1504b8c3de4, type: 3}
+  fire: []
+  die:
+  - {fileID: 2800000, guid: 7d3b95b59a95e4251a767be3bb9dae1a, type: 3}
+  - {fileID: 2800000, guid: 437d7e492aa8746ce974fbcf25e5e0d2, type: 3}
+  - {fileID: 2800000, guid: 86db3ed228c9e4d7db19ebee4de4742d, type: 3}
+  - {fileID: 2800000, guid: ba5f7ee326e064b74a5faa5472b061fb, type: 3}
+  - {fileID: 2800000, guid: 76728c3bbfdee42b29aabbe4038477a8, type: 3}
+  - {fileID: 2800000, guid: 45fece8db34a340e2a9efda6c8ad0178, type: 3}
+  - {fileID: 2800000, guid: b92e418c7826b46929152dbd68b2d7e8, type: 3}
+  - {fileID: 2800000, guid: eb6304a1a126d447ebfac0f078e17191, type: 3}
+  - {fileID: 2800000, guid: f27f7308d35eb4c7e81793cd2931f22e, type: 3}
+  - {fileID: 2800000, guid: ead0f79b226b44316b590b020c282223, type: 3}
+  docile: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
