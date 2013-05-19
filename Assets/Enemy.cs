@@ -7,12 +7,17 @@ public class Enemy : MonoBehaviour {
 	
 	int speed = 2;
 	int HP = 2;
-	bool invinc = false;
+	
+	private const float hitRate = 0.5f; // Half a second delay before you can hit again...
+	float hitdelay;
+	
 	int points = 250;
 	
 	// Use this for initialization
 	void Start () {
 		direction = Player.FaceDirection.Right;
+		
+		hitdelay = Time.time + hitRate;
 	}
 	
 	void OnTriggerEnter(Collider col){
@@ -23,13 +28,12 @@ public class Enemy : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision col2){
 		
-		//Debug.Log ("COL2: " + col2.gameObject.transform.FindChild("fist").gameObject.tag);
-		
 		if(col2.transform.FindChild("fist")){
 			BoxCollider bc = col2.transform.FindChild ("fist").GetComponent<BoxCollider>();
-			if(bc.bounds.size.x > 0 && !invinc){
+			if(bc.bounds.size.x > 0 && Time.time > hitdelay){
+				
+				hitdelay = Time.time + hitRate;
 				HP--;
-				invinc = true;
 				this.rigidbody.velocity = new Vector3(-4 * (int) direction, -Physics.gravity.y/1.2f,0);
 				
 				if (HP <= 0){
@@ -41,10 +45,6 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 	
-	void OnCollisionExit(Collision col2){
-		invinc = false;
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {

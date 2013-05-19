@@ -11,7 +11,7 @@ public class Hero : Player {
   private float nextPunchTime;
   public AudioClip punchSound;
 
-  private const float jumpRate = 0.2f; // the punch sound can only be played 5 times per second
+  private const float jumpRate = 0.2f; // the jump sound can only be played 5 times per second
   private float nextJumpTime;
   public AudioClip jumpSound;
 	
