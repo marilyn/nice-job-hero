@@ -9,7 +9,7 @@ public class HUD : MonoBehaviour {
 	// an int between 0 and 100
 	public int luck;
 	public int points;
-  public float health;
+	public float health;
 	
 
 	// Use this for initialization
@@ -21,17 +21,8 @@ public class HUD : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(benedict == null){
-			if(GameObject.Find("Benedict")!= null){
-				benedict = GameObject.Find("Benedict").GetComponent<Benedict>();	
-			}
-		}
-		
 		points = hero.GetPoints;
     	health = hero.Health;
-		if(benedict != null){
-			luck = benedict.GetLuck;
-		}
 	}
 	
 	void OnGUI() {

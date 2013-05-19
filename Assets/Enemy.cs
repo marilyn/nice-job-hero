@@ -89,6 +89,7 @@ public class Enemy : MonoBehaviour {
 		if(col2.gameObject.tag == "benedict"){
 			if (HP <= 0){ //Explodes if already dead by the time Benedict gets there
 				Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
+				Camera.main.GetComponent<HUD>().luck = -10;
 				DestroyObject(this.gameObject);
 			}
 			else{
