@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 1, z: 0}
+  m_LocalPosition: {x: 36.0794792, y: 8.80296135, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,6 +81,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aabea4b1de55045f79944703bbb85181, type: 3}
   m_Name: 
+  acquirer: {fileID: 0}
+  points: 10
+  luck: 0
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

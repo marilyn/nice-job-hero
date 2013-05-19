@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour {
  	public GameObject Explosion;
 	
 	int speed = 2;
-	int HP = 2;
+	public int HP = 2;
 	
 	private const float hitRate = 0.5f; // Half a second delay before you can hit again...
 	float hitdelay;
@@ -33,7 +33,26 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 	
+	
+	void onCollisionExit(Collision col){
+		this.collider.enabled = true;
+		this.rigidbody.useGravity = true;
+	}
+	
 	void OnCollisionEnter(Collision col2){
+		
+		if(col2.gameObject.tag == "benedict"){
+			if (HP <= 0){ //Explodes if already dead by the time Benedict gets there
+				Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
+				DestroyObject(this.gameObject);
+			}
+			else{
+				this.rigidbody.useGravity = false;
+				this.collider.enabled = false;
+				StartCoroutine ("reappear");
+			}
+		}
+		
 		
 		if(col2.transform.FindChild("fist")){
 			BoxCollider bc = col2.transform.FindChild ("fist").GetComponent<BoxCollider>();
@@ -48,6 +67,8 @@ public class Enemy : MonoBehaviour {
 					this.gameObject.renderer.material.SetColor("_Color", Color.red);
 					speed = 0;
 					this.gameObject.audio.Stop();
+					
+					
           			//Instantiate(Explosion, this.gameObject.transform.position, this.gameObject.transform.rotation);
 					// mark enemy as dead
 					Hero hero = col2.gameObject.GetComponent<Hero>();
@@ -69,5 +90,13 @@ public class Enemy : MonoBehaviour {
 	void Fire() {
 		flame = GameObject.Instantiate(sampleFlame, new Vector3(this.transform.position.x + (int)direction, this.transform.position.y, this.transform.position.z), Quaternion.Euler(90,180,0)) as GameObject;
 		Destroy(flame,2);
+	}
+	
+	
+	IEnumerator reappear(){
+		
+		yield return new WaitForSeconds(1.5f);
+		this.collider.enabled = true;
+		this.rigidbody.useGravity = true;
 	}
 }

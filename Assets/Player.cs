@@ -23,9 +23,13 @@ public class Player : MonoBehaviour {
 		get { return isOnGround; }
 		set { 
       		if(value) {
+				// restore friction on the ground
+				this.gameObject.collider.material.frictionCombine = PhysicMaterialCombine.Average;
 				this.gameObject.collider.material.dynamicFriction = 0.4f;
 				this.gameObject.collider.material.staticFriction = 0.4f;
       		} else {
+				// remove friction while in the air so we don't stick to walls
+				this.gameObject.collider.material.frictionCombine = PhysicMaterialCombine.Multiply;
 				this.gameObject.collider.material.dynamicFriction = 0.0f;
 				this.gameObject.collider.material.staticFriction = 0.0f;
       		}

@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76f0e3528a94c47ee95dc0853879fc3e, type: 3}
   m_Name: 
-  Explosion: {fileID: 0}
+  Explosion: {fileID: 100000, guid: 14f510d1b49e0401d836bfe5501ccdc0, type: 2}
   flame: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
