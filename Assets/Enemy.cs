@@ -81,9 +81,11 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Time.time > nextFireTime) {
-          	nextFireTime = Time.time + fireRate;
-			Fire();
+		if(GameObject.Find("Hero") != null){ //Only when HERO is out
+			if (Time.time > nextFireTime && HP > 0) { //Only when not 'dead'
+          		nextFireTime = Time.time + fireRate;
+				Fire();
+			}
 		}
 				
 		this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));	
