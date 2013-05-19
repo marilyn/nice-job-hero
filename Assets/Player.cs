@@ -44,14 +44,14 @@ public class Player : MonoBehaviour {
 			IsOnGround = true;	
 		}
 		
-		/*
+		
 		foreach(Event e in Camera.main.GetComponent<GameManager>().events){
 			if(e !=null){
 				if(collision.gameObject == e.collisionEventObject){
 					e.playerHasCollided = true;	
 				}
 			}
-		}*/
+		}
 	}
 	
 	public void Cancel(){

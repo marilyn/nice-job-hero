@@ -70,16 +70,12 @@ public class Benedict : Player {
 			
 			else if(Input.GetKey(KeyCode.RightArrow)){
 				
-				//if(direction != FaceDirection.Left){
+
 					direction = FaceDirection.Left;
 					this.renderer.material.SetTextureScale("_MainTex", new Vector2(-(int)direction,1));
-				//if(isOnGround){
 					
 					this.renderer.material.SetTexture("_MainTex", run[(int)walkFrame]);
 					WalkFrame+=.25f;
-				//}
-				//}
-			Debug.Log (WalkFrame);
 				
 	
 				this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));	
@@ -88,17 +84,7 @@ public class Benedict : Player {
 			else {
 				this.renderer.material.SetTexture("_MainTex", idle);	
 			}
-			
-			/*if(Input.GetKey(KeyCode.DownArrow) && !punching){
-				StartCoroutine("Punch");
-			}
-			
-			if(Input.GetKeyDown(KeyCode.Space) && isOnGround){
-				this.rigidbody.velocity = new Vector3(0,-Physics.gravity.y/1.5f,0);
-				this.renderer.material.SetTexture("_MainTex" , jump[0]);
-				IsOnGround = false;
-			}*/
-		//}
+
 	}
 	
 	void OnCollisionEnter (Collision collision) {
