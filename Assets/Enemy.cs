@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour {
 	private const float hitRate = 0.5f; // Half a second delay before you can hit again...
 	float hitdelay;
 	float nextFireTime;
-	float fireRate = 10;
+	float fireRate = 5;
 	
 	int points = 250;
 	
@@ -89,7 +89,7 @@ public class Enemy : MonoBehaviour {
 	
 	void Fire() {
 		flame = GameObject.Instantiate(sampleFlame, new Vector3(this.transform.position.x + (int)direction, this.transform.position.y, this.transform.position.z), Quaternion.Euler(90,180,0)) as GameObject;
-		Destroy(flame,2);
+		Destroy(flame,1);
 	}
 	
 	
