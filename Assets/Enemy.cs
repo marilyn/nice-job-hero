@@ -12,12 +12,18 @@ public class Enemy : MonoBehaviour {
 	private const float hitRate = 0.5f; // Half a second delay before you can hit again...
 	float hitdelay;
 	float nextFireTime;
+	float endFireTime;
 	float fireRate = 5;
+	float fireLength = 1;
+	bool isStartingFire;
+	bool isFiring;
 	
 	int points = 250;
 	
 	public GameObject flame;
 	public GameObject sampleFlame;
+	
+	GameManager gameManager;
 	
 	public Texture idle;
 	public Texture[] move = new Texture[4];
@@ -30,10 +36,9 @@ public class Enemy : MonoBehaviour {
 	float MoveFrame{
 		get{ return moveFrame; }
 		set{
-			if(value == move.Length){
+			if (value == move.Length) {
 				moveFrame = 0;	
-			}
-			else{
+			} else {
 				moveFrame = value;	
 			}
 		}
@@ -44,7 +49,7 @@ public class Enemy : MonoBehaviour {
 	float DieFrame{
 		get{ return dieFrame; }
 		set{
-			if(value < die.Length){
+			if (value < die.Length) {
 				dieFrame = value;	
 			} 
 		}
@@ -55,11 +60,23 @@ public class Enemy : MonoBehaviour {
 	float DocileFrame{
 		get{ return docileFrame; }
 		set{
-			if(value == docile.Length){
+			if (value == docile.Length) {
 				docileFrame = 0;	
-			}
-			else{
+			} else {
 				docileFrame = value;	
+			} 
+		}
+	}
+	
+	float fireFrame=0;
+	
+	float FireFrame{
+		get{ return fireFrame; }
+		set{
+			if (value == fire.Length || value < 0) {
+				fireFrame = 0;	
+			} else {
+				fireFrame = value;	
 			} 
 		}
 	}
@@ -130,36 +147,71 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(GameObject.Find("Hero") != null){ //Only when HERO is out
-			if (Time.time > nextFireTime && HP > 0) { //Only when not 'dead'
-          		nextFireTime = Time.time + fireRate;
-				Fire();
+		if (GameObject.Find("Hero") != null) { //Only when HERO is out
+			if (HP > 0) { //Only fire & move when not 'dead'
+				if (Time.time > nextFireTime) {
+	          		nextFireTime = Time.time + fireRate;
+					endFireTime = Time.time + fireLength;
+					isStartingFire = true;
+				}
+				
+				if (isStartingFire) {			
+					// baddie opening up his hatch
+					this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)direction,1));
+					this.renderer.material.SetTexture("_MainTex", fire[(int)fireFrame]); 
+					FireFrame+=.5f;
+					if (fireFrame == 0) {
+						isStartingFire = false;
+						Fire();
+						isFiring = true;
+						FireFrame = fire.Length - 1;
+					}
+				} else if (Time.time > endFireTime) {
+					// closing hatch
+					isFiring = false;
+					this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)direction,1));
+					this.renderer.material.SetTexture("_MainTex", fire[(int)fireFrame]); 
+					FireFrame-=.5f;
+					if (fireFrame == 0) {
+						endFireTime += Time.time + fireRate + fireLength;
+					}
+				} else if (isFiring) {
+					this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)direction,1));
+					this.renderer.material.SetTexture("_MainTex", fire[(int)fireFrame]); 				
+				} else {
+					// regular motion
+					this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)direction,1));
+					this.renderer.material.SetTexture("_MainTex", move[(int)moveFrame]); 
+					MoveFrame+=.5f;
+				}
+			} else {
+				this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)direction,1));
+				this.renderer.material.SetTexture("_MainTex", die[(int)dieFrame]); 
+				DieFrame+=.2f;
 			}
+		} else { // Benedict
+			if (HP > 0) { //Only when not 'dead'
+				this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)direction,1));
+				this.renderer.material.SetTexture("_MainTex", docile[(int)docileFrame]); 
+				DocileFrame+=.5f;
+			} 
 		}
 				
 		this.transform.Translate(new Vector3((int)direction * speed * Time.deltaTime,0,0));		
 		
-		if(speed != 0) {
-			this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)direction,1));
-			this.renderer.material.SetTexture("_MainTex", move[(int)moveFrame]); 
-			MoveFrame+=.5f;
-		} else {
-			this.renderer.material.SetTextureScale("_MainTex", new Vector2((int)direction,1));
-			this.renderer.material.SetTexture("_MainTex", die[(int)dieFrame]); 
-			DieFrame+=.2f;
-		}
+		
 	}
 	
 	void Fire() {
+		// shooting 
 		this.renderer.material.SetTextureScale("_MainTex", new Vector2(-(int)direction,1));
-		flame = GameObject.Instantiate(sampleFlame, new Vector3(this.transform.position.x - (int)direction*1.1f, this.transform.position.y + .5f, this.transform.position.z), Quaternion.Euler(90,180,0)) as GameObject;
+		flame = GameObject.Instantiate(sampleFlame, new Vector3(this.transform.position.x - (int)direction*1.5f, this.transform.position.y + .76f, this.transform.position.z), Quaternion.Euler(90,180,0)) as GameObject;
 		flame.gameObject.transform.parent = this.transform;
 		Destroy(flame,1);
 	}
 	
 	
 	IEnumerator reappear(){
-		
 		yield return new WaitForSeconds(1.5f);
 		this.collider.enabled = true;
 		this.rigidbody.useGravity = true;

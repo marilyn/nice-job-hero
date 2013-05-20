@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour {
 			
 			currentPlayer = GameObject.Instantiate(Benedict, player1Start.transform.position, Quaternion.Euler(90,180,0)) as GameObject;
 			Camera.main.GetComponent<CameraFollow>().player = currentPlayer;
+			currentPlayer.name = "Benedict";
 		}
 		
 	}

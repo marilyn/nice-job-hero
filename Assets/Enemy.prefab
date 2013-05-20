@@ -245,6 +245,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76f0e3528a94c47ee95dc0853879fc3e, type: 3}
   m_Name: 
+  direction: 0
   Explosion: {fileID: 100000, guid: 14f510d1b49e0401d836bfe5501ccdc0, type: 2}
   HP: 2
   flame: {fileID: 0}
@@ -255,7 +256,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: f45e18405af264af9a2df421421a3bda, type: 3}
   - {fileID: 2800000, guid: 82270af105f7942d7bea3000316987d2, type: 3}
   - {fileID: 2800000, guid: 1182960f441824fff9f7c1504b8c3de4, type: 3}
-  fire: []
+  fire:
+  - {fileID: 2800000, guid: 9dd1af53ed3ba4d2aa118e7fb2594f27, type: 3}
+  - {fileID: 2800000, guid: f5f7c6209210b43ff924bac81cbca4f3, type: 3}
+  - {fileID: 2800000, guid: 8c2e14e21695747409ceac1438782890, type: 3}
+  - {fileID: 2800000, guid: 4c61f10cc8aaa423c88f8b4b1f3da209, type: 3}
   die:
   - {fileID: 2800000, guid: 7d3b95b59a95e4251a767be3bb9dae1a, type: 3}
   - {fileID: 2800000, guid: 437d7e492aa8746ce974fbcf25e5e0d2, type: 3}
@@ -267,7 +272,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: eb6304a1a126d447ebfac0f078e17191, type: 3}
   - {fileID: 2800000, guid: f27f7308d35eb4c7e81793cd2931f22e, type: 3}
   - {fileID: 2800000, guid: ead0f79b226b44316b590b020c282223, type: 3}
-  docile: []
+  docile:
+  - {fileID: 2800000, guid: e7b471ba5f77643cf8350c651dd51d85, type: 3}
+  - {fileID: 2800000, guid: 70944d18473894919ab668c64b825eb2, type: 3}
+  - {fileID: 2800000, guid: dbf4e2cc5f4b3482d822b4f7d11f323e, type: 3}
+  - {fileID: 2800000, guid: 29c511168cd7f4fd1b1fa3e6c675390d, type: 3}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
